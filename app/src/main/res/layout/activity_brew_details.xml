@@ -17,7 +17,8 @@
         android:id="@+id/beerTitleView"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -32,32 +33,54 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/commentEditText"
-        android:layout_below="@+id/commentLabelView"
-        android:layout_alignParentRight="true"
+        android:id="@+id/noteEditText"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/noteLabelView"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Add a note for this beer:"
+        android:id="@+id/noteLabelView"
+        android:layout_marginTop="83dp"
+        android:textColor="@color/colorPrimaryText"
+        android:layout_below="@+id/notesTitleView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Note"
+        android:id="@+id/addNoteButton"
+        android:layout_alignParentStart="true"
+        android:background="@color/colorAccent"
+        android:layout_below="@+id/noteEditText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/noteEditText"
+        android:layout_alignEnd="@+id/noteEditText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Notes"
+        android:id="@+id/notesTitleView"
+        android:textStyle="bold"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/beerDescriptionView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Add a comment for this beer:"
-        android:id="@+id/commentLabelView"
-        android:layout_below="@+id/beerDescriptionView"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/beerNotesView"
+        android:layout_below="@+id/notesTitleView"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="25dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Comment"
-        android:id="@+id/addCommentButton"
-        android:layout_below="@+id/commentEditText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/commentEditText"
-        android:layout_alignEnd="@+id/commentEditText" />
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
