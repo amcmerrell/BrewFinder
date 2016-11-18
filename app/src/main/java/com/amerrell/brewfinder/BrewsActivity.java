@@ -51,6 +51,15 @@ public class BrewsActivity extends AppCompatActivity {
         ArrayAdapter adapter = new ArrayAdapter(BrewsActivity.this, android.R.layout.simple_list_item_1, beerNames);
         mBrewListView.setAdapter(adapter);
 
+        mBrewListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?>adapterView, View view, int position, long l) {
+                Intent intent = new Intent(BrewsActivity.this, BrewDetailsActivity.class);
+                String beerName = (String) mBrewListView.getItemAtPosition(position);
 
+                intent.putExtra("beerName", beerName);
+                intent.putExtra("beerDescription", beerDescriptions.get(position));
+            }
+        });
     }
 }
