@@ -13,7 +13,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class BrewDetailsActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.beerTitleView) TextView mBeerTitleView;
+    @Bind(R.id.mainBeerTitleView) TextView mBeerTitleView;
     @Bind(R.id.beerDescriptionView) TextView mBeerDescriptionView;
     @Bind(R.id.noteEditText) EditText mNoteEditText;
     @Bind(R.id.beerNotesView) TextView mBeerNotesView;
@@ -40,7 +40,7 @@ public class BrewDetailsActivity extends AppCompatActivity implements View.OnCli
         if (v == mAddNoteButton) {
             String note = mNoteEditText.getText().toString();
             if (note.length() > 0) {
-                mBeerNotesView.append(note);
+                mBeerNotesView.setText(note);
                 mNoteEditText.setText("");
             } else {
                 Toast.makeText(BrewDetailsActivity.this, "Please add a note before submitting.", Toast.LENGTH_LONG).show();
