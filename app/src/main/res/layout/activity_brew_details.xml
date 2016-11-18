@@ -28,4 +28,36 @@
         android:layout_below="@+id/beerTitleView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/commentEditText"
+        android:layout_below="@+id/commentLabelView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Add a comment for this beer:"
+        android:id="@+id/commentLabelView"
+        android:layout_below="@+id/beerDescriptionView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="25dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Comment"
+        android:id="@+id/addCommentButton"
+        android:layout_below="@+id/commentEditText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/commentEditText"
+        android:layout_alignEnd="@+id/commentEditText" />
 </RelativeLayout>
