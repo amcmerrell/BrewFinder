@@ -15,8 +15,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BrewsActivity" />
-        <activity android:name=".BrewDetailsActivity"></activity>
+        <activity
+            android:name=".BrewsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.amerrell.brewfinder.MainActivity">
+            </meta-data>
+        </activity>
+        <activity
+            android:name=".BrewDetailsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.amerrell.brewfinder.BrewsActivity">
+            </meta-data>
+        </activity>
     </application>
 
 </manifest>
