@@ -22,8 +22,8 @@
         android:text="Brew Finder"
         android:id="@+id/beerDetailsTitleView"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="70sp"
-        android:layout_marginTop="45dp"
+        android:textSize="75sp"
+        android:layout_marginTop="30dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
