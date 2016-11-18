@@ -1,12 +1,14 @@
 package com.amerrell.brewfinder;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -40,6 +42,7 @@ public class BrewsActivity extends AppCompatActivity {
             "Speedway Stout’s ominous, pitch-black appearance has become a hallmark of this modern-day classic. Chocolate and roasted malts dominate the flavor, supported by notes of dark fruit, toffee, and caramel. A healthy dose of locally-roasted coffee from Ryan Bros. Coffee, Inc. added to each batch brings out the beer’s dark chocolate flavors and enhances its drinkability. Despite its intensity, Speedway Stout’s fine carbonation and creamy mouthfeel make it very smooth and surprisingly easy to drink. This beer ages very well and will continue to mature for many years to come."
     ));
 
+    @Bind(R.id.beerListTitleView) TextView mBeerListTitleView;
     @Bind(R.id.brewListView) ListView mBrewListView;
 
     @Override
@@ -47,6 +50,9 @@ public class BrewsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_brews);
         ButterKnife.bind(this);
+
+        Typeface goodDog = Typeface.createFromAsset(getAssets(), "fonts/GoodDog.ttf");
+        mBeerListTitleView.setTypeface(goodDog);
 
         ArrayAdapter adapter = new ArrayAdapter(BrewsActivity.this, android.R.layout.simple_list_item_1, beerNames);
         mBrewListView.setAdapter(adapter);

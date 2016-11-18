@@ -1,6 +1,7 @@
 package com.amerrell.brewfinder;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +14,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class BrewDetailsActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.mainBeerTitleView) TextView mBeerTitleView;
+    @Bind(R.id.beerDetailsTitleView) TextView mBeerDetailsTitleView;
     @Bind(R.id.beerDescriptionView) TextView mBeerDescriptionView;
     @Bind(R.id.noteEditText) EditText mNoteEditText;
     @Bind(R.id.beerNotesView) TextView mBeerNotesView;
@@ -29,7 +30,10 @@ public class BrewDetailsActivity extends AppCompatActivity implements View.OnCli
         String beerName = intent.getStringExtra("beerName");
         String beerDescription =intent.getStringExtra("beerDescription");
 
-        mBeerTitleView.setText(beerName);
+        Typeface goodDog = Typeface.createFromAsset(getAssets(), "fonts/GoodDog.ttf");
+        mBeerDetailsTitleView.setTypeface(goodDog);
+
+        mBeerDetailsTitleView.setText(beerName);
         mBeerDescriptionView.setText(beerDescription);
 
         mAddNoteButton.setOnClickListener(this);
