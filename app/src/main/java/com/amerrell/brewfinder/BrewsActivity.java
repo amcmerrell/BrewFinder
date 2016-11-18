@@ -29,8 +29,8 @@ public class BrewsActivity extends AppCompatActivity {
     ));
     private ArrayList<String> beerDescriptions = new ArrayList<String>(Arrays.asList(
             "The flavour is outstanding with a nutty, yeasty aroma and taste, and hints of coconut and caramel. The exceptional taste of the beer coming out of st Sixtus Abbey is largely down to its unusual content of live yeast, which is uncommon in beer, but seems to work well. The beer also contains residual sugars, which is responsible for causing the sweet caramel flavours.",
-            "Toppling Goliath Mornin’ Delight",
             "A huge Imperial Stout with an explosive espresso aroma followed by strong notes of maple syrup and vanilla.",
+            "In Mayan mythology, Hun Hunahpu was the father of the Mayan hero twins Hunahpu and Xbalanque. Hun Hunahpu, along with his brother Vucub Hunahpu, was tricked by the Dark Lords of the underworld and slain. Hun Hunahpu’s corpse morphed into a cacao tree, his head becoming a cacao pod, which in typically awesome mythology fashion, spit upon the hand of a young maiden named Xiquic who promptly became pregnant with the hero twins. The twins would ultimately grow up to avenge their father and uncle and defeat the Dark Lords and ascend the heavens to become the moon and sun. We brew Hunahpu’s® Imperial Stout once a year and release it only at the brewery on the second Saturday in March. We will continue to do so until the end of the cycle.",
             "Zenne y Frontera is a unique creation from master-brewer and geuze-blender Armand Debelder and maître-sommelier Andy De Brouwer. This natural millésime beer is a blend of young lambics that have been aged for another 12 months in 40 year old Oloroso and PX sherry casks. Thanks to the long maturation, the geuze-like notes of our authentic 3 Fonteinen lambic are well accentuated by the typical, fine Oloroso and Pedro Ximénez characteristics. By gently decanting the Zenne y Frontera, the aroma of this unique lambic will evolve from vividly tangy to a complex nutty and fully fruity bouquet.",
             "A demonic Russian-Style Imperial Stout brewed with coffee, Mexican vanilla, and Indian sugar, this beer defies description. Available one day a year, in April at the brewery: Dark Lord Day.",
             "Pliny the Younger, the man, was Pliny the Elder’s nephew and adopted son. They lived nearly 2,000 years ago! Pliny the Elder is our Double IPA, so we felt it was fitting to name our Triple IPA after his son. It is almost a true Triple IPA with triple the amount of hops as a regular I.P.A. That said, it is extremely difficult, time and space consuming, and very expensive to make. And that is why we don’t make it more often! This beer is very full-bodied with tons of hop character in the nose and throughout. It is also deceptively well-balanced and smooth.",
@@ -59,6 +59,8 @@ public class BrewsActivity extends AppCompatActivity {
 
                 intent.putExtra("beerName", beerName);
                 intent.putExtra("beerDescription", beerDescriptions.get(position));
+
+                startActivity(intent);
             }
         });
     }
