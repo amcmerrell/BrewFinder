@@ -25,7 +25,7 @@ public class BreweryDetailsActivity extends AppCompatActivity implements View.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_brew_details);
+        setContentView(R.layout.activity_brewery_details);
         ButterKnife.bind(this);
 
         Intent intent = getIntent();

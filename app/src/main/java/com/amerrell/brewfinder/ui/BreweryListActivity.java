@@ -57,7 +57,7 @@ public class BreweryListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_brews);
+        setContentView(R.layout.activity_brewery_list);
         ButterKnife.bind(this);
 
         Typeface goodDog = Typeface.createFromAsset(getAssets(), "fonts/GoodDog.ttf");
