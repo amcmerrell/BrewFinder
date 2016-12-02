@@ -25,9 +25,6 @@ public class BreweryListActivity extends AppCompatActivity {
 
     public ArrayList<Brewery> mBreweries = new ArrayList<>();
 
-    @Bind(R.id.breweryListTitleView) TextView mBeerListTitleView;
-    @Bind(R.id.brewListView) ListView mBrewListView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +32,7 @@ public class BreweryListActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Typeface goodDog = Typeface.createFromAsset(getAssets(), "fonts/GoodDog.ttf");
-        mBeerListTitleView.setTypeface(goodDog);
+        //mBeerListTitleView.setTypeface(goodDog);
 
         Intent intent = getIntent();
         String zipCode = intent.getStringExtra("zipCode");
