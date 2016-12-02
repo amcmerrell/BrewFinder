@@ -2,10 +2,12 @@ package com.amerrell.brewfinder.ui;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -23,10 +25,11 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class BreweryListActivity extends AppCompatActivity {
+public class BreweryListActivity extends AppCompatActivity  implements View.OnClickListener{
     public static final String TAG = BreweryListActivity.class.getSimpleName();
 
     @Bind(R.id.breweryRecyclerView) RecyclerView mRecyclerView;
+    @Bind(R.id.addressTextView) TextView mAddressTextView;
     private BreweryListAdapter mAdapter;
 
     public ArrayList<Brewery> mBreweries = new ArrayList<>();
@@ -43,6 +46,8 @@ public class BreweryListActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String zipCode = intent.getStringExtra("zipCode");
         getBreweries(zipCode);
+
+        mAddressTextView.setOnClickListener(this);
     }
 
     private void getBreweries(String location) {
@@ -69,5 +74,13 @@ public class BreweryListActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == mAddressTextView) {
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse())
+        }
     }
 }
