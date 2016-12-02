@@ -4,10 +4,13 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.amerrell.brewfinder.R;
+import com.amerrell.brewfinder.adapters.BreweryListAdapter;
 import com.amerrell.brewfinder.models.Brewery;
 import com.amerrell.brewfinder.services.BreweryDBService;
 
@@ -22,6 +25,9 @@ import okhttp3.Response;
 
 public class BreweryListActivity extends AppCompatActivity {
     public static final String TAG = BreweryListActivity.class.getSimpleName();
+
+    @Bind(R.id.breweryRecyclerView) RecyclerView mRecyclerView;
+    private BreweryListAdapter mAdapter;
 
     public ArrayList<Brewery> mBreweries = new ArrayList<>();
 
@@ -49,9 +55,18 @@ public class BreweryListActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                if(response.isSuccessful()) {
-                    mBreweries = breweryDBService.processResults(response);
-                }
+                mBreweries = breweryDBService.processResults(response);
+
+                BreweryListActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mAdapter = new BreweryListAdapter(getApplicationContext(), mBreweries);
+                        mRecyclerView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(BreweryListActivity.this);
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setHasFixedSize(true);
+                    }
+                });
             }
         });
     }
