@@ -56,8 +56,12 @@ public class BreweryDBService {
                             .getString("squareLarge");
                     String phone = breweryJSON.getString("phone");
                     String website = breweryJSON.getString("website");
-
-                    breweries.add(new Brewery(name, logoUrl, phone, website));
+                    String streetAddress = breweryJSON.getString("streetAddress");
+                    String city = breweryJSON.getString("locality");
+                    String state = breweryJSON.getString("region");
+                    String zipCode = breweryJSON.getString("postalCode");
+                    String address = streetAddress + ", " + city + ", " + state + " " + zipCode;
+                    breweries.add(new Brewery(name, logoUrl, phone, website, address));
                 }
             }
         } catch (JSONException e) {
