@@ -1,4 +1,4 @@
-package com.amerrell.brewfinder;
+package com.amerrell.brewfinder.ui;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -9,6 +9,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.amerrell.brewfinder.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;

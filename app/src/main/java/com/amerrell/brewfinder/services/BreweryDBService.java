@@ -1,4 +1,6 @@
-package com.amerrell.brewfinder;
+package com.amerrell.brewfinder.services;
+
+import com.amerrell.brewfinder.Constants;
 
 import okhttp3.Call;
 import okhttp3.Callback;

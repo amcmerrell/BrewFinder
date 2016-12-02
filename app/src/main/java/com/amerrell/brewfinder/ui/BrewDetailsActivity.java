@@ -1,4 +1,4 @@
-package com.amerrell.brewfinder;
+package com.amerrell.brewfinder.ui;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.amerrell.brewfinder.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
