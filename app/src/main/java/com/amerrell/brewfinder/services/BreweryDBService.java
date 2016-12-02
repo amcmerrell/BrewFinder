@@ -16,7 +16,8 @@ public class BreweryDBService {
         OkHttpClient client = new OkHttpClient.Builder()
                 .build();
 
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.BREWERYDB_LOCATION_BASE_URL).newBuilder();
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.BREWERYDB_BASE_URL).newBuilder();
+        urlBuilder.addPathSegment(Constants.BREWERYDB_LOCATION_PATH);
         urlBuilder.addQueryParameter(Constants.BREWERYDB_KEY_PARAMETER, Constants.BREWERYDB_API_KEY)
                 .addQueryParameter(Constants.BREWERYDB_ZIPCODE_PARAMETER, zipCode);
         String url = urlBuilder.build().toString();

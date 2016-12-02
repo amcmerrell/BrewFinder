@@ -20,17 +20,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.BrewsActivity">
+            android:name=".ui.BreweryListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.MainActivity">
             </meta-data>
         </activity>
         <activity
-            android:name=".ui.BrewDetailsActivity">
+            android:name=".ui.BreweryDetailsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.BrewsActivity">
+                android:value=".ui.BreweryListActivity">
             </meta-data>
         </activity>
     </application>

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,14 +12,20 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.amerrell.brewfinder.R;
+import com.amerrell.brewfinder.services.BreweryDBService;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
-public class BrewsActivity extends AppCompatActivity {
+public class BreweryListActivity extends AppCompatActivity {
+    public static final String TAG = BreweryListActivity.class.getSimpleName();
     private ArrayList<String> beerNames = new ArrayList<String>(Arrays.asList(
             "Westvleteren 12 (XII)",
             "Toppling Goliath Mornin’ Delight",
@@ -56,19 +63,40 @@ public class BrewsActivity extends AppCompatActivity {
         Typeface goodDog = Typeface.createFromAsset(getAssets(), "fonts/GoodDog.ttf");
         mBeerListTitleView.setTypeface(goodDog);
 
-        ArrayAdapter adapter = new ArrayAdapter(BrewsActivity.this, android.R.layout.simple_list_item_1, beerNames);
+        String testZipCode = "97210";
+        getBreweries(testZipCode);
+
+        ArrayAdapter adapter = new ArrayAdapter(BreweryListActivity.this, android.R.layout.simple_list_item_1, beerNames);
         mBrewListView.setAdapter(adapter);
+
+
 
         mBrewListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?>adapterView, View view, int position, long l) {
-                Intent intent = new Intent(BrewsActivity.this, BrewDetailsActivity.class);
+                Intent intent = new Intent(BreweryListActivity.this, BreweryDetailsActivity.class);
                 String beerName = (String) mBrewListView.getItemAtPosition(position);
 
                 intent.putExtra("beerName", beerName);
                 intent.putExtra("beerDescription", beerDescriptions.get(position));
 
                 startActivity(intent);
+            }
+        });
+    }
+
+    private void getBreweries(String location) {
+        final BreweryDBService breweryDBService = new BreweryDBService();
+        breweryDBService.findBreweries(location, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String jsonData = response.body().string();
+                Log.v(TAG, jsonData);
             }
         });
     }

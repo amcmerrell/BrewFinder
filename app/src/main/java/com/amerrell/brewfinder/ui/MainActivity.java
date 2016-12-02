@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if(v == mViewBrewsButton) {
-            Intent intent = new Intent(MainActivity.this, BrewsActivity.class);
+            Intent intent = new Intent(MainActivity.this, BreweryListActivity.class);
             startActivity(intent);
         }
     }

@@ -15,7 +15,7 @@ import com.amerrell.brewfinder.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class BrewDetailsActivity extends AppCompatActivity implements View.OnClickListener {
+public class BreweryDetailsActivity extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.beerDetailsTitleView) TextView mBeerDetailsTitleView;
     @Bind(R.id.beerDescriptionView) TextView mBeerDescriptionView;
     @Bind(R.id.noteEditText) EditText mNoteEditText;
@@ -49,7 +49,7 @@ public class BrewDetailsActivity extends AppCompatActivity implements View.OnCli
                 mBeerNotesView.setText(note);
                 mNoteEditText.setText("");
             } else {
-                Toast.makeText(BrewDetailsActivity.this, "Please add a note before submitting.", Toast.LENGTH_LONG).show();
+                Toast.makeText(BreweryDetailsActivity.this, "Please add a note before submitting.", Toast.LENGTH_LONG).show();
             }
         }
     }
