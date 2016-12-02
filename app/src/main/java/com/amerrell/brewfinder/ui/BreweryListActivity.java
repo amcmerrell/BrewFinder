@@ -63,8 +63,9 @@ public class BreweryListActivity extends AppCompatActivity {
         Typeface goodDog = Typeface.createFromAsset(getAssets(), "fonts/GoodDog.ttf");
         mBeerListTitleView.setTypeface(goodDog);
 
-        String testZipCode = "97210";
-        getBreweries(testZipCode);
+        Intent intent = getIntent();
+        String zipCode = intent.getStringExtra("zipCode");
+        getBreweries(zipCode);
 
         ArrayAdapter adapter = new ArrayAdapter(BreweryListActivity.this, android.R.layout.simple_list_item_1, beerNames);
         mBrewListView.setAdapter(adapter);

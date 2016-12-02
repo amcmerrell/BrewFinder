@@ -44,7 +44,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/locationEditText"
         android:singleLine="true"
-        android:layout_above="@+id/viewBreweriesButton" />
+        android:layout_above="@+id/viewBreweriesButton"
+        android:textColor="@color/colorTextIcons" />
 
     <TextView
         android:layout_width="wrap_content"
