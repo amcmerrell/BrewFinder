@@ -19,8 +19,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Brew Finder"
-        android:id="@+id/beerDetailsTitleView"
+        android:text="Brew Crawl"
+        android:id="@+id/appTitleView"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="75sp"
         android:layout_marginTop="30dp"
@@ -30,12 +30,31 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="View Brews"
-        android:id="@+id/viewBrewsButton"
+        android:text="View Breweries"
+        android:id="@+id/viewBreweriesButton"
         android:layout_alignLeft="@+id/backgroundImageView"
         android:layout_alignStart="@+id/backgroundImageView"
         android:layout_alignRight="@+id/backgroundImageView"
         android:layout_alignEnd="@+id/backgroundImageView"
         android:layout_alignBottom="@+id/backgroundImageView"
         android:background="@color/colorAccent" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/locationEditText"
+        android:singleLine="true"
+        android:layout_above="@+id/viewBreweriesButton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Get started by entering a zip code."
+        android:id="@+id/locationLabelTextView"
+        android:layout_above="@+id/locationEditText"
+        android:layout_alignStart="@id/locationEditText"
+        android:layout_alignLeft="@id/locationEditText"
+        android:paddingLeft="5dp"
+        android:textColor="@color/colorTextIcons" />
 </RelativeLayout>

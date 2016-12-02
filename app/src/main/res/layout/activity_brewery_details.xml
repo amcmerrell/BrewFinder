@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Beer Name"
-        android:id="@+id/beerDetailsTitleView"
+        android:id="@+id/appTitleView"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -27,7 +27,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Beer Description"
         android:id="@+id/beerDescriptionView"
-        android:layout_below="@+id/beerDetailsTitleView"
+        android:layout_below="@+id/appTitleView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
