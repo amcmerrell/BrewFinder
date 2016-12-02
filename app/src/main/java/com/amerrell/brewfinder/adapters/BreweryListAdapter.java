@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.amerrell.brewfinder.R;
 import com.amerrell.brewfinder.models.Brewery;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -61,6 +62,7 @@ public class BreweryListAdapter extends RecyclerView.Adapter<BreweryListAdapter.
         public void bindBrewery(Brewery brewery) {
             mBreweryNameTextView.setText(brewery.getName());
             mAddressTextView.setText(brewery.getAddress());
+            Picasso.with(mContext).load(brewery.getLogoUrl()).into(mBreweryImageView);
         }
     }
 }
