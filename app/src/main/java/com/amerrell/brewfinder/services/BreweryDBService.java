@@ -1,12 +1,21 @@
 package com.amerrell.brewfinder.services;
 
 import com.amerrell.brewfinder.Constants;
+import com.amerrell.brewfinder.models.Brewery;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.Response;
 
 /**
  * Created by Andrew on 11/30/2016.
@@ -28,5 +37,34 @@ public class BreweryDBService {
 
         Call call = client.newCall(request);
         call.enqueue(callback);
+    }
+
+    public ArrayList<Brewery> processResults(Response response) {
+        ArrayList<Brewery> breweries = new ArrayList<Brewery>();
+
+        try {
+            String jsonData = response.body().string();
+            if (response.isSuccessful()) {
+                JSONObject breweryDbJSON = new JSONObject(jsonData);
+                JSONArray dataArray = breweryDbJSON.getJSONArray("data");
+                for (int i = 0; i < dataArray.length(); i++) {
+                    JSONObject breweryJSON = dataArray.getJSONObject(i);
+                    String name = breweryJSON.getJSONObject("brewery")
+                            .getString("name");
+                    String logoUrl = breweryJSON.getJSONObject("brewery")
+                            .getJSONObject("images")
+                            .getString("squareLarge");
+                    String phone = breweryJSON.getString("phone");
+                    String website = breweryJSON.getString("website");
+
+                    breweries.add(new Brewery(name, logoUrl, phone, website));
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return breweries;
     }
 }
