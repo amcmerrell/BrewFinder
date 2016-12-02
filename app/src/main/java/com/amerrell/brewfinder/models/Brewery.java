@@ -9,13 +9,17 @@ public class Brewery {
     private String mPhone;
     private String mWebsite;
     private String mAddress;
+    private double mLatitude;
+    private double mLongitude;
 
-    public Brewery(String name, String logoUrl, String phone, String website, String address) {
+    public Brewery(String name, String logoUrl, String phone, String website, String address, double latitude, double longitude) {
         this.mName = name;
         this.mLogoUrl = logoUrl;
         this.mPhone = phone;
         this.mWebsite = website;
         this.mAddress = address;
+        this.mLatitude = latitude;
+        this.mLongitude = longitude;
     }
 
     public String getLogoUrl() {
@@ -36,5 +40,13 @@ public class Brewery {
 
     public String getAddress() {
         return mAddress;
+    }
+
+    public double getLatitude() {
+        return mLatitude;
+    }
+
+    public double getLongitude() {
+        return mLongitude;
     }
 }
