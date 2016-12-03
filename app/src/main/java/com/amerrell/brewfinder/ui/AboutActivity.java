@@ -1,6 +1,7 @@
 package com.amerrell.brewfinder.ui;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -26,6 +27,7 @@ public class AboutActivity extends AppCompatActivity implements View.OnClickList
         Typeface goodDog = Typeface.createFromAsset(getAssets(), "fonts/GoodDog.ttf");
         mAboutTitleTextView.setTypeface(goodDog);
         mContactTitleTextView.setTypeface(goodDog);
+        mContactEmailTextView.setPaintFlags(mContactEmailTextView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         mContactEmailTextView.setOnClickListener(this);
     }
 

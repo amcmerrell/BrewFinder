@@ -123,6 +123,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="andrew.m.merrell@gmail.com"
+        android:textColor="@color/colorPrimary"
         android:id="@+id/contactEmailTextView"
         android:layout_below="@+id/contactTitleTextView"
         android:layout_alignParentLeft="true"
