@@ -2,12 +2,10 @@ package com.amerrell.brewfinder.ui;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import com.amerrell.brewfinder.R;
 import com.amerrell.brewfinder.adapters.BreweryListAdapter;
