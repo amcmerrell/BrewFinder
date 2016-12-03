@@ -123,7 +123,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="andrew.m.merrell@gmail.com"
-        android:id="@+id/contactDetailsTextView"
+        android:id="@+id/contactEmailTextView"
         android:layout_below="@+id/contactTitleTextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
