@@ -1,4 +1,4 @@
-# _Brew Finder_
+# _Brew Crawl_
 
 #### _11/18/2016_
 
@@ -6,16 +6,22 @@
 
 ## Description
 
-_Brew Finder is a an Android application, allowing users to find, rate, and save their favorite beers._
+_Brew Crawl is a an Android application, allowing users to find breweries in a given location and build, save and share a brew crawl itinerary._
 
 ## Specifications
 
+### _Current Features_
+
 | Behavior         | Input         | Output         |
 |------------------|---------------|----------------|
-| User clicks "View Brews". | 'View Brews' button is clicked. | App loads with page displaying list of beer names. |
-| User clicks on a beer name. | List item is clicked. | App loads page with description and brewery information for the selected beer. |
-| User adds comment about beer on beer details page. | Input field is filled out and 'Add Comment' button is clicked. | Page displays new comment. |
+| User fills out zip code form and clicks "View Breweries". | Zip Code entered and button clicked. | App loads with page displaying list of breweries in that location. |
+| User clicks email contact email on About activity. | Email text is clicked. | Default email client opens with email in "To" field. |
 
+### _In-progress Features_
+| Behavior         | Input         | Output         |
+|------------------|---------------|----------------|
+| User clicks on a brewery name. | List item is clicked. | App loads page with description and brewery information for the selected beer. |
+| User clicks "Save" button on Brewery Detail Activity | Save button clicked. | Crawls activity loads with saved Brewery added. |
 
 ## Prerequisites
 
