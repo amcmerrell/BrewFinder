@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.appTitleView) TextView mAppTitleView;
     @Bind(R.id.viewBreweriesButton) Button mViewBreweriesButton;
     @Bind(R.id.locationEditText) EditText mLocationEditText;
+    @Bind(R.id.aboutButton) Button mAboutButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,14 +30,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAppTitleView.setTypeface(goodDog);
 
         mViewBreweriesButton.setOnClickListener(this);
+        mAboutButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if(v == mViewBreweriesButton) {
+        if (v == mViewBreweriesButton) {
             String zipCode = mLocationEditText.getText().toString();
             Intent intent = new Intent(MainActivity.this, BreweryListActivity.class);
             intent.putExtra("zipCode", zipCode);
+
+            startActivity(intent);
+        } else if (v == mAboutButton) {
+            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
 
             startActivity(intent);
         }
