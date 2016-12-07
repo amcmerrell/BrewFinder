@@ -28,6 +28,7 @@ public class BreweryListAdapter extends RecyclerView.Adapter<BreweryListAdapter.
     private ArrayList<Brewery> mBreweries = new ArrayList<>();
     private Context mContext;
     private Brewery mBrewery;
+    //add variable to get position int and send with parcelable.
 
     public BreweryListAdapter(Context context, ArrayList<Brewery> breweries) {
         mContext = context;

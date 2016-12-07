@@ -15,6 +15,7 @@
         <ImageView
             android:layout_width="130dp"
             android:layout_height="130dp"
+            android:id="@+id/breweryDetailsImageView"
             android:src="@drawable/placeholder_square"/>
 
         <RelativeLayout
@@ -26,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Brewery Name"
-                android:id="@+id/breweryTitleTextView"
+                android:id="@+id/breweryDetailsTitleTextView"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
@@ -40,9 +41,19 @@
                 android:text="Brewery address"
                 android:textColor="@color/colorAccent"
                 android:id="@+id/breweryAddressTextView"
-                android:layout_below="@+id/breweryTitleTextView"
+                android:layout_below="@+id/breweryDetailsTitleTextView"
                 android:drawableLeft="@drawable/ic_room_black_24dp"
                 android:drawableTint="@color/colorAccent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Brewery phone"
+                android:id="@+id/breweryPhoneTextView"
+                android:layout_below="@+id/breweryAddressTextView"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
