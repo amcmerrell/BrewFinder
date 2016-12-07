@@ -16,8 +16,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class BreweryDetailsActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.appTitleView) TextView mBeerDetailsTitleView;
-    @Bind(R.id.beerDescriptionView) TextView mBeerDescriptionView;
+    @Bind(R.id.breweryTitleTextView) TextView mBeerDetailsTitleView;
+    @Bind(R.id.breweryDescriptionTextView) TextView mBeerDescriptionView;
     @Bind(R.id.noteEditText) EditText mNoteEditText;
     @Bind(R.id.beerNotesView) TextView mBeerNotesView;
     @Bind(R.id.addNoteButton) Button mAddNoteButton;

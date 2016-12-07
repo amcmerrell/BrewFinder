@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Brew Crawl"
-        android:id="@+id/appTitleView"
+        android:id="@+id/breweryTitleTextView"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="75sp"
         android:layout_marginTop="30dp"
@@ -65,6 +65,6 @@
         android:text="About"
         android:id="@+id/aboutButton"
         android:background="@color/colorAccent"
-        android:layout_below="@+id/appTitleView"
+        android:layout_below="@+id/breweryTitleTextView"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

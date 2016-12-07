@@ -15,7 +15,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.appTitleView) TextView mAppTitleView;
+    @Bind(R.id.breweryTitleTextView) TextView mAppTitleView;
     @Bind(R.id.viewBreweriesButton) Button mViewBreweriesButton;
     @Bind(R.id.locationEditText) EditText mLocationEditText;
     @Bind(R.id.aboutButton) Button mAboutButton;
