@@ -9,6 +9,7 @@ import org.parceler.Parcel;
 @Parcel
 public class Brewery {
     String mName;
+    String mDescription;
     String mLogoUrl;
     String mPhone;
     String mWebsite;
@@ -20,6 +21,7 @@ public class Brewery {
 
     public Brewery(String name, String logoUrl, String phone, String website, String address, double latitude, double longitude) {
         this.mName = name;
+        this.mDescription = "";
         this.mLogoUrl = logoUrl;
         this.mPhone = phone;
         this.mWebsite = website;
@@ -34,6 +36,10 @@ public class Brewery {
 
     public String getName() {
         return mName;
+    }
+
+    public String getDescription() {
+        return mDescription;
     }
 
     public String getPhone() {

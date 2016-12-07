@@ -53,7 +53,7 @@ public class BreweryListAdapter extends RecyclerView.Adapter<BreweryListAdapter.
     }
 
     public class BreweryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        @Bind(R.id.breweryImageView) ImageView mBreweryImageView;
+        @Bind(R.id.breweryListImageView) ImageView mBreweryListImageView;
         @Bind(R.id.breweryNameTextView) TextView mBreweryNameTextView;
         @Bind(R.id.addressTextView) TextView mAddressTextView;
 
@@ -70,7 +70,7 @@ public class BreweryListAdapter extends RecyclerView.Adapter<BreweryListAdapter.
         public void bindBrewery(Brewery brewery) {
             mBreweryNameTextView.setText(brewery.getName());
             mAddressTextView.setText(brewery.getAddress());
-            Picasso.with(mContext).load(brewery.getLogoUrl()).into(mBreweryImageView);
+            Picasso.with(mContext).load(brewery.getLogoUrl()).into(mBreweryListImageView);
         }
 
         @Override
