@@ -1,6 +1,7 @@
 package com.amerrell.brewfinder.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +11,10 @@ import android.widget.TextView;
 
 import com.amerrell.brewfinder.R;
 import com.amerrell.brewfinder.models.Brewery;
+import com.amerrell.brewfinder.ui.BreweryDetailsActivity;
 import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -23,6 +27,7 @@ import butterknife.ButterKnife;
 public class BreweryListAdapter extends RecyclerView.Adapter<BreweryListAdapter.BreweryViewHolder> {
     private ArrayList<Brewery> mBreweries = new ArrayList<>();
     private Context mContext;
+    private Brewery mBrewery;
 
     public BreweryListAdapter(Context context, ArrayList<Brewery> breweries) {
         mContext = context;
@@ -39,6 +44,7 @@ public class BreweryListAdapter extends RecyclerView.Adapter<BreweryListAdapter.
     @Override
     public void onBindViewHolder(BreweryViewHolder holder, int position) {
         holder.bindBrewery(mBreweries.get(position));
+        mBrewery = mBreweries.get(position);
     }
 
     @Override
@@ -46,7 +52,7 @@ public class BreweryListAdapter extends RecyclerView.Adapter<BreweryListAdapter.
         return mBreweries.size();
     }
 
-    public class BreweryViewHolder extends RecyclerView.ViewHolder {
+    public class BreweryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Bind(R.id.breweryImageView) ImageView mBreweryImageView;
         @Bind(R.id.breweryNameTextView) TextView mBreweryNameTextView;
         @Bind(R.id.addressTextView) TextView mAddressTextView;
@@ -55,7 +61,9 @@ public class BreweryListAdapter extends RecyclerView.Adapter<BreweryListAdapter.
 
         public BreweryViewHolder(View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this);
             ButterKnife.bind(this, itemView);
+
             mContext = itemView.getContext();
         }
 
@@ -63,6 +71,14 @@ public class BreweryListAdapter extends RecyclerView.Adapter<BreweryListAdapter.
             mBreweryNameTextView.setText(brewery.getName());
             mAddressTextView.setText(brewery.getAddress());
             Picasso.with(mContext).load(brewery.getLogoUrl()).into(mBreweryImageView);
+        }
+
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(mContext, BreweryDetailsActivity.class);
+            //intent.putExtra("position", mPosition);
+            intent.putExtra("brewery", Parcels.wrap(mBrewery));
+            mContext.startActivity(intent);
         }
     }
 }

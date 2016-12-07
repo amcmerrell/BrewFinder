@@ -1,16 +1,22 @@
 package com.amerrell.brewfinder.models;
 
+import org.parceler.Parcel;
+
 /**
  * Created by Guest on 12/2/16.
  */
+
+@Parcel
 public class Brewery {
-    private String mName;
-    private String mLogoUrl;
-    private String mPhone;
-    private String mWebsite;
-    private String mAddress;
-    private double mLatitude;
-    private double mLongitude;
+    String mName;
+    String mLogoUrl;
+    String mPhone;
+    String mWebsite;
+    String mAddress;
+    double mLatitude;
+    double mLongitude;
+
+    public Brewery() {}
 
     public Brewery(String name, String logoUrl, String phone, String website, String address, double latitude, double longitude) {
         this.mName = name;

@@ -1,13 +1,10 @@
 package com.amerrell.brewfinder.ui;
 
 import android.content.Intent;
-import android.graphics.Typeface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import com.amerrell.brewfinder.R;
 import com.amerrell.brewfinder.adapters.BreweryListAdapter;
@@ -37,7 +34,7 @@ public class BreweryListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_brewery_list);
         ButterKnife.bind(this);
 
-        Typeface goodDog = Typeface.createFromAsset(getAssets(), "fonts/GoodDog.ttf");
+        //Typeface goodDog = Typeface.createFromAsset(getAssets(), "fonts/GoodDog.ttf");
         //mBeerListTitleView.setTypeface(goodDog);
 
         Intent intent = getIntent();
