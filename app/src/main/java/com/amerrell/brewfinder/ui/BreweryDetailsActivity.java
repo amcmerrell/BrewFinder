@@ -12,6 +12,8 @@ import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -20,7 +22,9 @@ public class BreweryDetailsActivity extends AppCompatActivity {
     @Bind(R.id.breweryAddressTextView) TextView mBreweryAddressTextView;
     @Bind(R.id.breweryDetailsImageView) ImageView mBreweryDetailsImageView;
     @Bind(R.id.breweryPhoneTextView) TextView mBreweryPhoneTextView;
+    private ArrayList<Brewery> mBreweries;
     private Brewery mBrewery;
+    private int mPosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +32,10 @@ public class BreweryDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_brewery_details);
         ButterKnife.bind(this);
 
-        mBrewery =  Parcels.unwrap(getIntent().getParcelableExtra("brewery"));
+        mPosition = getIntent().getIntExtra("position", 0);
+        mBreweries =  Parcels.unwrap(getIntent().getParcelableExtra("breweries"));
+
+        mBrewery = mBreweries.get(mPosition);
         Typeface goodDog = Typeface.createFromAsset(getAssets(), "fonts/GoodDog.ttf");
         mBreweryTitleTextView.setTypeface(goodDog);
 

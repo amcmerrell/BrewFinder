@@ -27,8 +27,6 @@ import butterknife.ButterKnife;
 public class BreweryListAdapter extends RecyclerView.Adapter<BreweryListAdapter.BreweryViewHolder> {
     private ArrayList<Brewery> mBreweries = new ArrayList<>();
     private Context mContext;
-    private Brewery mBrewery;
-    //add variable to get position int and send with parcelable.
 
     public BreweryListAdapter(Context context, ArrayList<Brewery> breweries) {
         mContext = context;
@@ -45,7 +43,6 @@ public class BreweryListAdapter extends RecyclerView.Adapter<BreweryListAdapter.
     @Override
     public void onBindViewHolder(BreweryViewHolder holder, int position) {
         holder.bindBrewery(mBreweries.get(position));
-        mBrewery = mBreweries.get(position);
     }
 
     @Override
@@ -77,8 +74,9 @@ public class BreweryListAdapter extends RecyclerView.Adapter<BreweryListAdapter.
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(mContext, BreweryDetailsActivity.class);
-            //intent.putExtra("position", mPosition);
-            intent.putExtra("brewery", Parcels.wrap(mBrewery));
+            int position = getAdapterPosition();
+            intent.putExtra("position", position);
+            intent.putExtra("breweries", Parcels.wrap(mBreweries));
             mContext.startActivity(intent);
         }
     }
