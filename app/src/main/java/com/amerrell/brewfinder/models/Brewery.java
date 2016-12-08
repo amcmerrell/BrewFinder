@@ -8,57 +8,57 @@ import org.parceler.Parcel;
 
 @Parcel
 public class Brewery {
-    String mName;
-    String mDescription;
-    String mLogoUrl;
-    String mPhone;
-    String mWebsite;
-    String mAddress;
-    double mLatitude;
-    double mLongitude;
+    String name;
+    String description;
+    String logoUrl;
+    String phone;
+    String website;
+    String address;
+    double latitude;
+    double longitude;
 
     public Brewery() {}
 
     public Brewery(String name, String logoUrl, String phone, String website, String address, double latitude, double longitude) {
-        this.mName = name;
-        this.mDescription = "";
-        this.mLogoUrl = logoUrl;
-        this.mPhone = phone;
-        this.mWebsite = website;
-        this.mAddress = address;
-        this.mLatitude = latitude;
-        this.mLongitude = longitude;
+        this.name = name;
+        this.description = "";
+        this.logoUrl = logoUrl;
+        this.phone = phone;
+        this.website = website;
+        this.address = address;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public String getLogoUrl() {
-        return mLogoUrl;
+        return logoUrl;
     }
 
     public String getName() {
-        return mName;
+        return name;
     }
 
     public String getDescription() {
-        return mDescription;
+        return description;
     }
 
     public String getPhone() {
-        return mPhone;
+        return phone;
     }
 
     public String getWebsite() {
-        return mWebsite;
+        return website;
     }
 
     public String getAddress() {
-        return mAddress;
+        return address;
     }
 
     public double getLatitude() {
-        return mLatitude;
+        return latitude;
     }
 
     public double getLongitude() {
-        return mLongitude;
+        return longitude;
     }
 }
