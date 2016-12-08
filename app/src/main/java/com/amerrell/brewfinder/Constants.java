@@ -15,4 +15,10 @@ public class Constants {
     public static final String BREWERYDB_ZIPCODE_PARAMETER = "postalCode";
     public static final String BREWERYDB_CITY_PARAMETER = "locality";
     public static final String BREWERYDB_STATE_PARAMETER = "region";
+
+    //Shared Preferences
+    public static final String PREFERENCES_ZIPCODE_KEY = "zipCode";
+
+    //Firebase
+    public static final String FIREBASE_CHILD_BREWERIES = "breweries";
 }

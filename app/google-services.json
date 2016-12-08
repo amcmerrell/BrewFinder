@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "181273739349",
+    "firebase_url": "https://brew-crawl.firebaseio.com",
+    "project_id": "brew-crawl",
+    "storage_bucket": "brew-crawl.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:181273739349:android:47af5a59db426c0b",
+        "android_client_info": {
+          "package_name": "com.amerrell.brewfinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "181273739349-jlht1eq5bqr0dsatm40n4avsm8t86rvf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.amerrell.brewfinder",
+            "certificate_hash": "9F83750A757D11064B88B6ED31B265F9B92E6F35"
+          }
+        },
+        {
+          "client_id": "181273739349-nc1ips8qv83n6j7rvhktm15nnb15srgl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNhL4Zhac-fM_N-aiDvk59_5u8uvKCqKA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "181273739349-nc1ips8qv83n6j7rvhktm15nnb15srgl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
