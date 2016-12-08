@@ -1,11 +1,12 @@
 package com.amerrell.brewfinder.ui;
 
 import android.content.Intent;
-//import android.graphics.Typeface;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 
 import com.amerrell.brewfinder.R;
 import com.amerrell.brewfinder.adapters.BreweryListAdapter;
@@ -21,10 +22,13 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
+//import android.graphics.Typeface;
+
 public class BreweryListActivity extends AppCompatActivity {
     public static final String TAG = BreweryListActivity.class.getSimpleName();
 
     @Bind(R.id.breweryRecyclerView) RecyclerView mRecyclerView;
+    @Bind(R.id.breweryListTitleTextView) TextView mBreweryListTitleTextView;
     private BreweryListAdapter mAdapter;
 
     public ArrayList<Brewery> mBreweries = new ArrayList<>();
@@ -35,8 +39,8 @@ public class BreweryListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_brewery_list);
         ButterKnife.bind(this);
 
-        //Typeface goodDog = Typeface.createFromAsset(getAssets(), "fonts/GoodDog.ttf");
-        //mBeerListTitleView.setTypeface(goodDog);
+        Typeface goodDog = Typeface.createFromAsset(getAssets(), "fonts/GoodDog.ttf");
+        mBreweryListTitleTextView.setTypeface(goodDog);
 
         Intent intent = getIntent();
         String zipCode = intent.getStringExtra("zipCode");

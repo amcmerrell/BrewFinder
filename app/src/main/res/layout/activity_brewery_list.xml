@@ -5,9 +5,22 @@
     android:layout_height="match_parent"
     tools:context=".ui.BreweryListActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/breweryListTitleTextView"
+        android:paddingBottom="10dp"
+        android:text="Breweries"
+        android:textColor="@color/colorAccent"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textSize="40sp"/>
+
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/breweryRecyclerView"/>
+        android:id="@+id/breweryRecyclerView"
+        android:layout_below="@+id/breweryListTitleTextView"
+        />
 
 </RelativeLayout>
