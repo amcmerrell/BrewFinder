@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.viewBreweriesButton) Button mViewBreweriesButton;
     @Bind(R.id.locationEditText) EditText mLocationEditText;
     @Bind(R.id.aboutButton) Button mAboutButton;
+    @Bind(R.id.savedBreweriesButton) Button mSavedBreweriesButton;
 
     private SharedPreferences mSharedPrefences;
     private SharedPreferences.Editor mEditor;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mViewBreweriesButton.setOnClickListener(this);
         mAboutButton.setOnClickListener(this);
+        mSavedBreweriesButton.setOnClickListener(this);
     }
 
     @Override
@@ -52,6 +54,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         } else if (v == mAboutButton) {
             Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+            startActivity(intent);
+        } else if (v == mSavedBreweriesButton) {
+            Intent intent = new Intent(MainActivity.this, SavedBreweriesActivity.class);
             startActivity(intent);
         }
     }

@@ -22,16 +22,21 @@
         <activity android:name=".ui.BreweryListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity"></meta-data>
+                android:value=".ui.MainActivity" />
         </activity>
         <activity android:name=".ui.BreweryDetailsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.BreweryListActivity">
-
             </meta-data>
         </activity>
         <activity android:name=".ui.AboutActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.MainActivity">
+            </meta-data>
+        </activity>
+        <activity android:name=".ui.SavedBreweriesActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.MainActivity">

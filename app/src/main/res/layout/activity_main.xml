@@ -67,4 +67,14 @@
         android:background="@color/colorAccent"
         android:layout_below="@+id/breweryTitleTextView"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saved Breweries"
+        android:id="@+id/savedBreweriesButton"
+        android:background="@color/colorAccent"
+        android:layout_below="@+id/aboutButton"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
