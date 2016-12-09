@@ -20,6 +20,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/savedBreweryRecyclerView"
-        android:layout_below="@+id/breweryListTitleTextView" />
+        android:layout_below="@+id/savedBreweriesTitleTextView" />
 
 </RelativeLayout>
