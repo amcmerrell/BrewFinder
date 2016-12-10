@@ -1,5 +1,6 @@
 package com.amerrell.brewfinder.ui;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -28,6 +29,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private ProgressDialog mAuthProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         mRegisterTextView.setOnClickListener(this);
         mLoginButton.setOnClickListener(this);
+        createAuthProgressDialog();
+    }
+
+    private void createAuthProgressDialog() {
+        mAuthProgressDialog = new ProgressDialog(this);
+        mAuthProgressDialog.setTitle("Brewing...");
+        mAuthProgressDialog.setMessage("Authenticating with Firebase...");
+        mAuthProgressDialog.setCancelable(false);
     }
 
     @Override
@@ -77,13 +87,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             mPasswordEditText.setError("Please enter you password.");
             return;
         }
+        mAuthProgressDialog.show();
 
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                mAuthProgressDialog.dismiss();
                 if (!task.isSuccessful()) {
                     Toast.makeText(LoginActivity.this, "Authentiation failed. Please check your credentials and try again.", Toast.LENGTH_SHORT).show();
-
                 }
             }
         });
