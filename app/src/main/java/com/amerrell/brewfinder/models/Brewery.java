@@ -9,6 +9,7 @@ import org.parceler.Parcel;
 @Parcel
 public class Brewery {
     String name;
+    private String pushId;
     String description;
     String logoUrl;
     String phone;
@@ -36,6 +37,14 @@ public class Brewery {
 
     public String getName() {
         return name;
+    }
+
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 
     public String getDescription() {
