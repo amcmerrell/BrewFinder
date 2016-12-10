@@ -67,7 +67,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         if (view == mLoginButton) {
             loginWithPassword();
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         } else if (view == mRegisterTextView) {
             Intent intent = new Intent(LoginActivity.this, CreateAccountActivity.class);
             startActivity(intent);

@@ -32,6 +32,7 @@ import okhttp3.Response;
 public class BreweryListActivity extends AppCompatActivity {
     public static final String TAG = BreweryListActivity.class.getSimpleName();
 
+    @Bind(R.id.noBreweriesErrorTextView) TextView mNoBreweriesErrorTextView;
     @Bind(R.id.breweryRecyclerView) RecyclerView mRecyclerView;
     @Bind(R.id.breweryListTitleTextView) TextView mBreweryListTitleTextView;
 
@@ -50,6 +51,7 @@ public class BreweryListActivity extends AppCompatActivity {
 
         Typeface goodDog = Typeface.createFromAsset(getAssets(), "fonts/GoodDog.ttf");
         mBreweryListTitleTextView.setTypeface(goodDog);
+        mNoBreweriesErrorTextView.setTypeface(goodDog);
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mRecentZipCode = mSharedPreferences.getString(Constants.PREFERENCES_ZIPCODE_KEY, null);
@@ -109,6 +111,11 @@ public class BreweryListActivity extends AppCompatActivity {
                 BreweryListActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        if (mBreweries.size() == 0) {
+                            mNoBreweriesErrorTextView.setText("No breweries found");
+                            mBreweryListTitleTextView.setText("");
+                            return;
+                        }
                         mAdapter = new BreweryListAdapter(getApplicationContext(), mBreweries);
                         mRecyclerView.setAdapter(mAdapter);
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(BreweryListActivity.this);

@@ -16,10 +16,23 @@
         android:textStyle="bold"
         android:textSize="40sp"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/noBreweriesErrorTextView"
+        android:text=""
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        android:textSize="40sp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/breweryRecyclerView"
-        android:layout_below="@+id/breweryListTitleTextView" />
+        android:layout_below="@+id/breweryListTitleTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

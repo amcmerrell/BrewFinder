@@ -93,8 +93,8 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         user.updateProfile(addProfileName).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    //createFirebaseUserProfile(task.getResult().getUser());
+                if (!task.isSuccessful()) {
+                    Toast.makeText(CreateAccountActivity.this, "Authentication Failed.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
