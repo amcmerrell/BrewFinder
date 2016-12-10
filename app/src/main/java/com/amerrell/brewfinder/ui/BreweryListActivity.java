@@ -111,16 +111,18 @@ public class BreweryListActivity extends AppCompatActivity {
                 BreweryListActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        if (mBreweries.size() == 0) {
-                            mNoBreweriesErrorTextView.setText("No breweries found");
-                            mBreweryListTitleTextView.setText("");
-                            return;
-                        }
+                        mNoBreweriesErrorTextView.setText("");
+                        mBreweryListTitleTextView.setText("Breweries");
                         mAdapter = new BreweryListAdapter(getApplicationContext(), mBreweries);
                         mRecyclerView.setAdapter(mAdapter);
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(BreweryListActivity.this);
                         mRecyclerView.setLayoutManager(layoutManager);
                         mRecyclerView.setHasFixedSize(true);
+                        if (mBreweries.size() == 0) {
+                            mNoBreweriesErrorTextView.setText("No breweries found");
+                            mBreweryListTitleTextView.setText("");
+                            return;
+                        }
                     }
                 });
             }

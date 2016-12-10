@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.amerrell.brewfinder.Constants;
 import com.amerrell.brewfinder.R;
@@ -72,9 +73,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if (v == mViewBreweriesButton) {
             String zipCode = mLocationEditText.getText().toString();
-            if (!(zipCode).equals("")) {
-                addToSharedPreferences(zipCode);
+            if (!(zipCode.length() == 5)) {
+                Toast.makeText(MainActivity.this, "Please enter a 5 digit zip code.", Toast.LENGTH_SHORT).show();
+                return;
             }
+            addToSharedPreferences(zipCode);
             Intent intent = new Intent(MainActivity.this, BreweryListActivity.class);
             startActivity(intent);
         } else if (v == mAboutButton) {
