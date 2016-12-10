@@ -1,5 +1,6 @@
 package com.amerrell.brewfinder.ui;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.amerrell.brewfinder.Constants;
 import com.amerrell.brewfinder.R;
@@ -62,7 +62,9 @@ public class BreweryDetailsActivity extends AppCompatActivity implements View.On
                     .getInstance()
                     .getReference(Constants.FIREBASE_CHILD_BREWERIES);
             breweryRef.push().setValue(mBrewery);
-            Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(BreweryDetailsActivity.this, SavedBreweriesActivity.class);
+            startActivity(intent);
         }
     }
 }
