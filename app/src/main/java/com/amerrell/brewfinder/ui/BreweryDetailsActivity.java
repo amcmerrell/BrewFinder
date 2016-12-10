@@ -8,12 +8,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.amerrell.brewfinder.Constants;
 import com.amerrell.brewfinder.R;
 import com.amerrell.brewfinder.models.Brewery;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -58,13 +63,33 @@ public class BreweryDetailsActivity extends AppCompatActivity implements View.On
     @Override
     public void onClick(View view) {
         if (view == mSaveBreweryButton) {
-            DatabaseReference breweryRef = FirebaseDatabase
+            Query duplicateQuery = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_BREWERIES);
-            breweryRef.push().setValue(mBrewery);
-            //Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(BreweryDetailsActivity.this, SavedBreweriesActivity.class);
-            startActivity(intent);
+                    .getReference()
+                    .child(Constants.FIREBASE_CHILD_BREWERIES)
+                    .orderByChild("address")
+                    .equalTo(mBrewery.getAddress());
+            duplicateQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.getValue() == null) {
+                        DatabaseReference breweryRef = FirebaseDatabase
+                                .getInstance()
+                                .getReference(Constants.FIREBASE_CHILD_BREWERIES);
+                        breweryRef.push().setValue(mBrewery);
+
+                        Intent intent = new Intent(BreweryDetailsActivity.this, SavedBreweriesActivity.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(BreweryDetailsActivity.this, "Brewery already saved", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
         }
     }
 }
