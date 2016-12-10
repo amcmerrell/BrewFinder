@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.amerrell.brewfinder.Constants;
 import com.amerrell.brewfinder.R;
 import com.amerrell.brewfinder.models.Brewery;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,6 +38,8 @@ public class BreweryDetailsActivity extends AppCompatActivity implements View.On
     @Bind(R.id.saveBreweryButton) Button mSaveBreweryButton;
 
     private ArrayList<Brewery> mBreweries;
+    private Query mDuplicateQuery;
+    private ValueEventListener mDuplicateQueryEventListener;
     private Brewery mBrewery;
     private int mPosition;
 
@@ -63,16 +67,20 @@ public class BreweryDetailsActivity extends AppCompatActivity implements View.On
     @Override
     public void onClick(View view) {
         if (view == mSaveBreweryButton) {
-            Query duplicateQuery = FirebaseDatabase
+            mDuplicateQuery = FirebaseDatabase
                     .getInstance()
                     .getReference()
                     .child(Constants.FIREBASE_CHILD_BREWERIES)
                     .orderByChild("address")
                     .equalTo(mBrewery.getAddress());
-            duplicateQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+            mDuplicateQueryEventListener = mDuplicateQuery.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     if (dataSnapshot.getValue() == null) {
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        String uid = user.getUid();
+                        mBrewery.setPushId(uid);
+
                         DatabaseReference breweryRef = FirebaseDatabase
                                 .getInstance()
                                 .getReference(Constants.FIREBASE_CHILD_BREWERIES);
@@ -91,5 +99,11 @@ public class BreweryDetailsActivity extends AppCompatActivity implements View.On
                 }
             });
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mDuplicateQuery.removeEventListener(mDuplicateQueryEventListener);
     }
 }

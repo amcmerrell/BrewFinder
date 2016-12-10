@@ -12,14 +12,16 @@ import com.amerrell.brewfinder.R;
 import com.amerrell.brewfinder.adapters.FirebaseBreweryViewHolder;
 import com.amerrell.brewfinder.models.Brewery;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class SavedBreweriesActivity extends AppCompatActivity {
-    private DatabaseReference mBreweryReference;
+    private Query mBreweryReference;
     private FirebaseRecyclerAdapter mFirebaseAdapter;
 
     @Bind(R.id.savedBreweryRecyclerView) RecyclerView mSavedBreweryRecyclerView;
@@ -34,7 +36,15 @@ public class SavedBreweriesActivity extends AppCompatActivity {
         Typeface goodDog = Typeface.createFromAsset(getAssets(), "fonts/GoodDog.ttf");
         mSavedBreweriesTitleTextView.setTypeface(goodDog);
 
-        mBreweryReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_BREWERIES);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        mBreweryReference = FirebaseDatabase
+                .getInstance()
+                .getReference()
+                .child(Constants.FIREBASE_CHILD_BREWERIES)
+                .orderByChild("pushId")
+                .equalTo(uid);
         setUpFirebaseAdapter();
     }
 
