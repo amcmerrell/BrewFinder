@@ -8,15 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.amerrell.brewfinder.Constants;
 import com.amerrell.brewfinder.R;
 import com.amerrell.brewfinder.models.Brewery;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
@@ -67,43 +64,17 @@ public class BreweryDetailsActivity extends AppCompatActivity implements View.On
     @Override
     public void onClick(View view) {
         if (view == mSaveBreweryButton) {
-            mDuplicateQuery = FirebaseDatabase
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
+            mBrewery.setPushId(uid);
+
+            DatabaseReference breweryRef = FirebaseDatabase
                     .getInstance()
-                    .getReference()
-                    .child(Constants.FIREBASE_CHILD_BREWERIES)
-                    .orderByChild("address")
-                    .equalTo(mBrewery.getAddress());
-            mDuplicateQueryEventListener = mDuplicateQuery.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    if (dataSnapshot.getValue() == null) {
-                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                        String uid = user.getUid();
-                        mBrewery.setPushId(uid);
+                    .getReference(Constants.FIREBASE_CHILD_BREWERIES);
+            breweryRef.push().setValue(mBrewery);
 
-                        DatabaseReference breweryRef = FirebaseDatabase
-                                .getInstance()
-                                .getReference(Constants.FIREBASE_CHILD_BREWERIES);
-                        breweryRef.push().setValue(mBrewery);
-
-                        Intent intent = new Intent(BreweryDetailsActivity.this, SavedBreweriesActivity.class);
-                        startActivity(intent);
-                    } else {
-                        Toast.makeText(BreweryDetailsActivity.this, "Brewery already saved", Toast.LENGTH_SHORT).show();
-                    }
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
+            Intent intent = new Intent(BreweryDetailsActivity.this, SavedBreweriesActivity.class);
+            startActivity(intent);
         }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mDuplicateQuery.removeEventListener(mDuplicateQueryEventListener);
     }
 }
