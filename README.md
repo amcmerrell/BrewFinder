@@ -10,18 +10,13 @@ _Brew Crawl is a an Android application, allowing users to find breweries in a g
 
 ## Specifications
 
-### _Current Features_
-
 | Behavior         | Input         | Output         |
 |------------------|---------------|----------------|
 | User fills out zip code form and clicks "View Breweries". | Zip Code entered and button clicked. | App loads with page displaying list of breweries in that location. |
 | User clicks email contact email on About activity. | Email text is clicked. | Default email client opens with email in "To" field. |
-
-### _In-progress Features_
-| Behavior         | Input         | Output         |
-|------------------|---------------|----------------|
 | User clicks on a brewery name. | List item is clicked. | App loads page with description and brewery information for the selected beer. |
 | User clicks "Save" button on Brewery Detail Activity | Save button clicked. | Crawls activity loads with saved Brewery added. |
+| User navigates to either BreweryActivity or SavedBreweryActivity and no breweries load. | Button clicked for either View Breweries or Saved Breweries | Error text displays. |
 
 ## Prerequisites
 
