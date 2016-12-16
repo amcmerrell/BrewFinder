@@ -30,8 +30,6 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class BreweryListActivity extends AppCompatActivity {
-    public static final String TAG = BreweryListActivity.class.getSimpleName();
-
     @Bind(R.id.noBreweriesErrorTextView) TextView mNoBreweriesErrorTextView;
     @Bind(R.id.breweryRecyclerView) RecyclerView mRecyclerView;
     @Bind(R.id.breweryListTitleTextView) TextView mBreweryListTitleTextView;

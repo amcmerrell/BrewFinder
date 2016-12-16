@@ -2,6 +2,7 @@ package com.amerrell.brewfinder.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,9 +19,6 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-
 /**
  * Created by Guest on 12/2/16.
  */
@@ -35,14 +33,16 @@ public class BreweryListAdapter extends RecyclerView.Adapter<BreweryListAdapter.
 
     @Override
     public BreweryListAdapter.BreweryViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.brewery_list_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.brewery_card_item, parent, false);
         BreweryViewHolder viewHolder = new BreweryViewHolder(view);
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(BreweryViewHolder holder, int position) {
-        holder.bindBrewery(mBreweries.get(position));
+        holder.mBreweryNameTextView.setText(mBreweries.get(position).getName());
+        holder.mAddressTextView.setText(mBreweries.get(position).getAddress());
+        Picasso.with(mContext).load(mBreweries.get(position).getLogoUrl()).into(holder.mBreweryListImageView);
     }
 
     @Override
@@ -50,26 +50,35 @@ public class BreweryListAdapter extends RecyclerView.Adapter<BreweryListAdapter.
         return mBreweries.size();
     }
 
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+    }
+
     public class BreweryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        @Bind(R.id.breweryListImageView) ImageView mBreweryListImageView;
-        @Bind(R.id.breweryNameTextView) TextView mBreweryNameTextView;
-        @Bind(R.id.addressTextView) TextView mAddressTextView;
+        ImageView mBreweryListImageView;
+        TextView mBreweryNameTextView;
+        TextView mAddressTextView;
+        CardView mCardView;
 
         private Context mContext;
 
         public BreweryViewHolder(View itemView) {
             super(itemView);
+            mCardView = (CardView)itemView.findViewById(R.id.breweryCardView);
+            mBreweryListImageView = (ImageView)itemView.findViewById(R.id.breweryListImageView);
+            mBreweryNameTextView = (TextView)itemView.findViewById(R.id.breweryNameTextView);
+            mAddressTextView = (TextView)itemView.findViewById(R.id.addressTextView);
             itemView.setOnClickListener(this);
-            ButterKnife.bind(this, itemView);
 
             mContext = itemView.getContext();
         }
 
-        public void bindBrewery(Brewery brewery) {
-            mBreweryNameTextView.setText(brewery.getName());
-            mAddressTextView.setText(brewery.getAddress());
-            Picasso.with(mContext).load(brewery.getLogoUrl()).into(mBreweryListImageView);
-        }
+//        public void bindBrewery(Brewery brewery) {
+//            mBreweryNameTextView.setText(brewery.getName());
+//            mAddressTextView.setText(brewery.getAddress());
+//            Picasso.with(mContext).load(brewery.getLogoUrl()).into(mBreweryListImageView);
+//        }
 
         @Override
         public void onClick(View view) {
