@@ -66,12 +66,16 @@ public class BreweryDetailsActivity extends AppCompatActivity implements View.On
         if (view == mSaveBreweryButton) {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             String uid = user.getUid();
-            mBrewery.setPushId(uid);
 
             DatabaseReference breweryRef = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_BREWERIES);
-            breweryRef.push().setValue(mBrewery);
+                    .getReference(Constants.FIREBASE_CHILD_BREWERIES)
+                    .child(uid);
+
+            DatabaseReference pushRef = breweryRef.push();
+            String pushId = pushRef.getKey();
+            mBrewery.setPushId(pushId);
+            pushRef.setValue(mBrewery);
 
             Intent intent = new Intent(BreweryDetailsActivity.this, SavedBreweriesActivity.class);
             startActivity(intent);
