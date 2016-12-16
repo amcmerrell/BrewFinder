@@ -1,6 +1,9 @@
 package com.amerrell.brewfinder.adapters;
 
 import android.content.Context;
+import android.support.v4.view.MotionEventCompat;
+import android.view.MotionEvent;
+import android.view.View;
 
 import com.amerrell.brewfinder.models.Brewery;
 import com.amerrell.brewfinder.util.ItemTouchHelperAdapter;
@@ -25,8 +28,17 @@ public class FirebaseBreweryListAdapter extends FirebaseRecyclerAdapter<Brewery,
     }
 
     @Override
-    protected void populateViewHolder(FirebaseBreweryViewHolder viewHolder, Brewery model, int position) {
+    protected void populateViewHolder(final FirebaseBreweryViewHolder viewHolder, Brewery model, int position) {
         viewHolder.bindBrewery(model);
+        viewHolder.mSavedBreweryImageView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
+                    mOnStartDragListener.onStartDrag(viewHolder);
+                }
+                return false;
+            }
+        });
     }
 
     @Override
