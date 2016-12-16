@@ -49,7 +49,7 @@ public class SavedBreweriesActivity extends AppCompatActivity {
     }
 
     private void setUpFirebaseAdapter() {
-        mFirebaseAdapter = new FirebaseRecyclerAdapter<Brewery, FirebaseBreweryViewHolder>(Brewery.class, R.layout.saved_brewery_list_item, FirebaseBreweryViewHolder.class, mBreweryReference) {
+        mFirebaseAdapter = new FirebaseRecyclerAdapter<Brewery, FirebaseBreweryViewHolder>(Brewery.class, R.layout.saved_brewery_card_item, FirebaseBreweryViewHolder.class, mBreweryReference) {
             @Override
             protected void populateViewHolder(FirebaseBreweryViewHolder viewHolder, Brewery model, int position) {
                 viewHolder.bindBrewery(model);

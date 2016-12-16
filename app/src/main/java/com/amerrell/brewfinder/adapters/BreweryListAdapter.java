@@ -74,12 +74,6 @@ public class BreweryListAdapter extends RecyclerView.Adapter<BreweryListAdapter.
             mContext = itemView.getContext();
         }
 
-//        public void bindBrewery(Brewery brewery) {
-//            mBreweryNameTextView.setText(brewery.getName());
-//            mAddressTextView.setText(brewery.getAddress());
-//            Picasso.with(mContext).load(brewery.getLogoUrl()).into(mBreweryListImageView);
-//        }
-
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(mContext, BreweryDetailsActivity.class);
