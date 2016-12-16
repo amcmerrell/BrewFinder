@@ -21,4 +21,5 @@ public class Constants {
 
     //Firebase
     public static final String FIREBASE_CHILD_BREWERIES = "breweries";
+    public static final String FIREBASE_QUERY_INDEX = "index";
 }

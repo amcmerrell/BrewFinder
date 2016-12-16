@@ -9,6 +9,7 @@ import org.parceler.Parcel;
 @Parcel
 public class Brewery {
     String name;
+    String index;
     private String pushId;
     String description;
     String logoUrl;
@@ -22,6 +23,7 @@ public class Brewery {
 
     public Brewery(String name, String logoUrl, String phone, String website, String address, double latitude, double longitude) {
         this.name = name;
+        this.index = "not_specified";
         this.description = "";
         this.logoUrl = logoUrl;
         this.phone = phone;
@@ -31,12 +33,18 @@ public class Brewery {
         this.longitude = longitude;
     }
 
-    public String getLogoUrl() {
-        return logoUrl;
-    }
+
 
     public String getName() {
         return name;
+    }
+
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
     }
 
     public String getPushId() {
@@ -49,6 +57,10 @@ public class Brewery {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getLogoUrl() {
+        return logoUrl;
     }
 
     public String getPhone() {

@@ -49,10 +49,9 @@ public class SavedBreweriesActivity extends AppCompatActivity implements OnStart
 
         mBreweryReference = FirebaseDatabase
                 .getInstance()
-                .getReference()
-                .child(Constants.FIREBASE_CHILD_BREWERIES)
-                .orderByChild("pushId")
-                .equalTo(uid);
+                .getReference(Constants.FIREBASE_CHILD_BREWERIES)
+                .child(uid)
+                .orderByChild(Constants.FIREBASE_QUERY_INDEX);
 
         mFirebaseAdapter = new FirebaseBreweryListAdapter(Brewery.class, R.layout.saved_brewery_card_item, FirebaseBreweryViewHolder.class, mBreweryReference, this, this);
         mSavedBreweryRecyclerView.setHasFixedSize(true);
