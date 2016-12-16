@@ -27,7 +27,6 @@ public class FirebaseBreweryViewHolder extends RecyclerView.ViewHolder {
         ImageView savedBreweryImageView = (ImageView) mView.findViewById(R.id.savedBreweryListImageView);
         TextView savedBreweryTitleTextView = (TextView) mView.findViewById(R.id.savedBreweryNameTextView);
         TextView savedBreweryAddressTextView = (TextView) mView.findViewById(R.id.savedAddressTextView);
-
         Picasso.with(mContext).load(brewery.getLogoUrl()).into(savedBreweryImageView);
         savedBreweryTitleTextView.setText(brewery.getName());
         savedBreweryAddressTextView.setText(brewery.getAddress());
