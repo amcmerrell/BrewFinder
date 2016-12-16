@@ -36,12 +36,11 @@
             android:background="@android:color/white"
             android:hint="Password"
             android:inputType="textPassword"
-            android:nextFocusDown="@+id/passwordEditText"
+            android:nextFocusDown="@+id/passwordLoginButton"
             android:padding="10dp"
             android:textColor="@android:color/black"
             android:textColorHint="@color/colorDivider"
             android:textSize="20sp" />
-
 
         <Button
             android:id="@+id/passwordLoginButton"

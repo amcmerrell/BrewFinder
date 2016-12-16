@@ -56,6 +56,7 @@
         android:layout_above="@+id/locationEditText"
         android:layout_alignStart="@id/locationEditText"
         android:layout_alignLeft="@id/locationEditText"
+        android:nextFocusDown="@+id/viewBreweriesButton"
         android:paddingLeft="5dp"
         android:textColor="@color/colorTextIcons" />
 
