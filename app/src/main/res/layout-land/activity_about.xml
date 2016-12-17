@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.amerrell.brewfinder.ui.AboutActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="About Brew Crawl"
+                android:textSize="50dp"
+                android:textColor="@color/colorAccent"
+                android:id="@+id/aboutTitleTextView"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Brew Crawl helps you build your perfect beer-tasting itinerary, so you don't miss any of the best breweries, brewpubs, or beer bars -- wherever your travels take you."
+                android:id="@+id/aboutDetailsTextView"
+                android:layout_below="@+id/aboutTitleTextView"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/aboutGridLayout"
+                android:layout_below="@+id/aboutDetailsTextView"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="  Create an account."
+                        android:textColor="@color/colorPrimary"
+                        android:id="@+id/accountFeatureTextView"
+                        android:drawableLeft="@drawable/ic_account_circle_black_24dp"
+                        android:drawableTint="@color/colorAccent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="  Choose a location."
+                        android:textColor="@color/colorPrimary"
+                        android:id="@+id/locationFeatureTextView"
+                        android:drawableLeft="@drawable/ic_room_black_24dp"
+                        android:drawableTint="@color/colorAccent"
+                        android:layout_below="@id/accountFeatureTextView"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="  Check out the breweries."
+                        android:textColor="@color/colorPrimary"
+                        android:id="@+id/breweryFeatureTextView"
+                        android:drawableLeft="@drawable/ic_art_track_black_24dp"
+                        android:drawableTint="@color/colorAccent"
+                        android:layout_below="@id/locationFeatureTextView"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="  Save your favorites."
+                        android:textColor="@color/colorPrimary"
+                        android:id="@+id/favoriteFeatureTextView"
+                        android:drawableLeft="@drawable/ic_favorite_black_24dp"
+                        android:drawableTint="@color/colorAccent"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="  Plan your route."
+                        android:textColor="@color/colorPrimary"
+                        android:id="@+id/routeFeatureTextView"
+                        android:drawableLeft="@drawable/ic_navigation_black_24dp"
+                        android:drawableTint="@color/colorAccent"
+                        android:layout_below="@id/favoriteFeatureTextView"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+
+                </RelativeLayout>
+
+            </GridLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Contact"
+                android:textSize="50dp"
+                android:textColor="@color/colorAccent"
+                android:id="@+id/contactTitleTextView"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/aboutGridLayout"
+                android:contextClickable="false"
+                android:clickable="false" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="andrew.m.merrell@gmail.com"
+                android:textColor="@color/colorPrimary"
+                android:id="@+id/contactEmailTextView"
+                android:layout_below="@+id/contactTitleTextView"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
