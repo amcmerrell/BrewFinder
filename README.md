@@ -6,7 +6,7 @@
 
 ## Description
 
-_Brew Crawl is a an Android application, allowing users to find breweries in a given location and build, save and share a brew crawl itinerary._
+_Brew Crawl is an Android application, allowing users to find breweries in a given location and build, save, and share a brew crawl itinerary._
 
 ## Specifications
 
