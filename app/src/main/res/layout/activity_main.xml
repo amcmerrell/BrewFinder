@@ -23,59 +23,83 @@
         android:id="@+id/breweryTitleTextView"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="75sp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="8dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="View Breweries"
-        android:id="@+id/viewBreweriesButton"
-        android:layout_alignLeft="@+id/backgroundImageView"
-        android:layout_alignStart="@+id/backgroundImageView"
-        android:layout_alignRight="@+id/backgroundImageView"
-        android:layout_alignEnd="@+id/backgroundImageView"
-        android:layout_alignBottom="@+id/backgroundImageView"
-        android:background="@color/colorAccent" />
+        android:id="@+id/titleButtonsLayout"
+        android:orientation="horizontal"
+        android:weightSum=".9"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/breweryTitleTextView">
 
-    <EditText
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_weight=".45"
+            android:layout_width="0dip"
+            android:layout_margin="5dp"
+            android:text="Saved Breweries"
+            android:id="@+id/savedBreweriesButton"
+            android:background="@color/colorAccent" />
+
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_weight=".45"
+            android:layout_width="0dip"
+            android:layout_margin="5dp"
+            android:text="About"
+            android:id="@+id/aboutButton"
+            android:background="@color/colorAccent" />
+
+    </LinearLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/locationEditText"
-        android:singleLine="true"
-        android:layout_above="@+id/viewBreweriesButton"
-        android:textColor="@color/colorTextIcons" />
+        android:layout_height="165dp"
+        android:padding="20dp"
+        android:id="@+id/breweryFormLayout"
+        android:background="#CC607D8B"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Get started by entering a zip code."
-        android:id="@+id/locationLabelTextView"
-        android:layout_above="@+id/locationEditText"
-        android:layout_alignStart="@id/locationEditText"
-        android:layout_alignLeft="@id/locationEditText"
-        android:nextFocusDown="@+id/viewBreweriesButton"
-        android:paddingLeft="5dp"
-        android:textColor="@color/colorTextIcons" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Get started by entering a zip code."
+            android:id="@+id/locationLabelTextView"
+            android:layout_above="@+id/locationEditText"
+            android:layout_alignStart="@id/locationEditText"
+            android:layout_alignLeft="@id/locationEditText"
+            android:nextFocusDown="@+id/viewBreweriesButton"
+            android:paddingLeft="5dp"
+            android:textColor="@color/colorTextIcons" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="About"
-        android:id="@+id/aboutButton"
-        android:background="@color/colorAccent"
-        android:layout_below="@+id/breweryTitleTextView"
-        android:layout_centerHorizontal="true" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/locationEditText"
+            android:singleLine="true"
+            android:layout_above="@+id/viewBreweriesButton"
+            android:textColor="@color/colorTextIcons" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Saved Breweries"
-        android:id="@+id/savedBreweriesButton"
-        android:background="@color/colorAccent"
-        android:layout_below="@+id/aboutButton"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Breweries"
+            android:id="@+id/viewBreweriesButton"
+            android:background="@color/colorAccent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/locationEditText"
+            android:layout_alignEnd="@+id/locationEditText"
+            android:layout_alignLeft="@+id/locationEditText"
+            android:layout_alignStart="@+id/locationEditText" />
+    </RelativeLayout>
+
 </RelativeLayout>
